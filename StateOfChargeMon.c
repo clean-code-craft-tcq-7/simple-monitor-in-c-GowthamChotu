@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int StateofChargeIsOk(float soc)
  {    
    if(soc < 20 || soc > 80) {
