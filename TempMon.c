@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int TemperatureIsOk(float temperature)
  {
    if(temperature < 0 || temperature > 45) {
