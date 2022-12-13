@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int ChargeRateIsOk(float chargeRate)
  {
    if(chargeRate > 0.8) {
