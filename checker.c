@@ -7,9 +7,6 @@
 
     
 int batteryIsOk(float temperature, float soc, float chargeRate) {
-  //TemperatureIsOk(temperature)
-  //StateofChargeIsOk(soc)  
-  //ChargeRateIsOk(chargeRate)
   if((TemperatureIsOk(temperature)==0) || (StateofChargeIsOk(soc)==0) || (ChargeRateIsOk(chargeRate)==0))
   {
     return 0;
