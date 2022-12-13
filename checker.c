@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "TempMon.h"
-#include "StateOfChargeMon.h"
-#include "ChargeRateMon.h"
+#include "BatteryMon.h"
 
     
 int batteryIsOk(float temperature, float soc, float chargeRate) {
