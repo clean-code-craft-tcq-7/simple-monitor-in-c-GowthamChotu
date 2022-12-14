@@ -3,20 +3,29 @@
 
 #define RangeCheck(ActualValue,MinRange,MaxRange) (ActualValue<=MinRange || ActualValue>=MaxRange)?0:1
 
+#define TempMinRange 0
+#define TempMaxRange 45
+
+#define SocMinRange 20
+#define SocMaxRange 80
+
+#define ChargeRateRange 0.8
+
+
 int Check_ChargeRate(float chargeRate);
 
 int batteryIsOk(float temperature, float soc, float chargeRate)
 {
   int batterystate = 1;
-  batterystate =  RangeCheck(temperature,0 , 45);
-  batterystate &= RangeCheck(soc,20, 80);
+  batterystate =  RangeCheck(temperature,TempMinRange , TempMaxRange);
+  batterystate &= RangeCheck(soc, SocMinRange, SocMaxRange);
   batterystate &= Check_ChargeRate(chargeRate);
   return batterystate;
 }
 
 int Check_ChargeRate(float chargeRate)
 {
-   if(chargeRate>0.8)
+   if(chargeRate>ChargeRateRange)
    {
     return 0;
    }
