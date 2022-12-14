@@ -1,51 +1,30 @@
 #include <stdio.h>
 #include <assert.h>
 
+#define RangeCheck(ActualValue,MinRange,MaxRange) (ActualValue<=MinRange || ActualValue>=MaxRange)?0:1
 
-int TemperatureIsOk(float temperature)
- {
-   if(temperature < 0 || temperature > 45) {
-   printf("Temperature out of range!\n");
-   return 0;
-   }
-   else
+int Check_ChargeRate(float chargeRate);
+
+int batteryIsOk(float temperature, float soc, float chargeRate)
+{
+  int batterystate = 1;
+  batterystate =  RangeCheck(temperature,0 , 45);
+  batterystate &= RangeCheck(soc,20, 80);
+  batterystate &= Check_ChargeRate(chargeRate);
+  return batterystate;
+}
+
+int Check_ChargeRate(float chargeRate)
+{
+   if(chargeRate>0.8)
    {
-    return 1;
-   }
- }
-
-int StateofChargeIsOk(float soc)
- {    
-   if(soc < 20 || soc > 80) {
-   printf("State of Charge out of range!\n");
-   return 0;
-   }
-   else
-   {
-    return 1;
-   }
- }
-
-int ChargeRateIsOk(float chargeRate)
- {
-   if(chargeRate > 0.8) {
-   printf("Charge Rate out of range!\n");
-   return 0;
-   }
-   else
-   {
-    return 1;
-   }
- }
-
-int batteryIsOk(float temperature, float soc, float chargeRate) {
-  if((TemperatureIsOk(temperature)==0) || (StateofChargeIsOk(soc)==0) || (ChargeRateIsOk(chargeRate)==0))
-  {
     return 0;
-  }
-  
-  return 1;
-  
+   }
+   else
+   {
+    return 1;
+   }
+   
 }
 
 int main() {
