@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define RangeCheck(ActVal,MinVal,MaxVal) (ActVal<=MinRange || ActVal>=MaxVal)?0:1
+#define RangeCheck(ActVal,MinVal,MaxVal) (ActVal<=MinVal || ActVal>=MaxVal)?0:1
 
 #define TempMinVal 0
 #define TempMaxVal 45
